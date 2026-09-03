@@ -21,10 +21,10 @@ Structure exactly:
 then the email body with a greeting, 1-3 short paragraphs, an explicit ask, and a sign-off.
 Match the requested tone and audience precisely. Respect the requested length:
 Concise = under 120 words, Standard = 120-200 words, Detailed = 200-300 words.`,
-        prompt: `Audience: ${options.audience ?? "Client"}
-Tone: ${options.tone ?? "Professional"}
-Length: ${options.length ?? "Concise"}
-Sender name: ${options.sender?.trim() || "[your name]"}
+        prompt: `Audience: ${options["audience"] ?? "Client"}
+Tone: ${options["tone"] ?? "Professional"}
+Length: ${options["length"] ?? "Concise"}
+Sender name: ${options["sender"]?.trim() || "[your name]"}
 
 What the email must accomplish:
 ${input}`,
@@ -40,7 +40,7 @@ Structure exactly these sections, omitting none:
 ### Action items — bullets as "**Owner** — task — _due date_" (use [owner?] / [no date] when missing)
 ### Deadlines — bullets of dated commitments, chronological
 ### Open questions — bullets, or "None identified"`,
-        prompt: `Meeting title: ${options.title?.trim() || "[untitled meeting]"}
+        prompt: `Meeting title: ${options["title"]?.trim() || "[untitled meeting]"}
 
 Raw notes / transcript:
 ${input}`,
@@ -56,8 +56,8 @@ Structure exactly:
 A markdown table with columns: Priority | Task | Suggested slot | Est. effort | Why
 ### Focus blocks — 2-4 bullets proposing time blocks
 ### Cut or delegate — bullets of what should not be done now`,
-        prompt: `Planning horizon: ${options.horizon ?? "Today"}
-Working hours: ${options.hours ?? "09:00-17:00"}
+        prompt: `Planning horizon: ${options["horizon"] ?? "Today"}
+Working hours: ${options["hours"] ?? "09:00-17:00"}
 
 Tasks and context:
 ${input}`,
@@ -74,8 +74,8 @@ Structure exactly:
 ### Considerations & risks — bullets
 ### Recommended next steps — numbered, concrete
 ### Confidence — one line stating confidence level and what would need verification`,
-        prompt: `Depth: ${options.depth ?? "Standard brief"}
-Audience for this brief: ${options.audience ?? "Internal team"}
+        prompt: `Depth: ${options["depth"] ?? "Standard brief"}
+Audience for this brief: ${options["audience"] ?? "Internal team"}
 
 Research question:
 ${input}`,
